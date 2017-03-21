@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="ezstuff">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="assets/plugins/angular/angular.js"></script>
+
+</head>
+<body ng-init="sb={name:'somebody',gender:'male',age:28}">
+  <ez-namecard-editor data="sb"></ez-namecard-editor>
+  <div ez-logger data="sb"></div>
+  <script src="ezNamecardEditor.js"></script>
+</body>
+</html>

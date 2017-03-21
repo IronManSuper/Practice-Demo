@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="assets/plugins/angular/angular.min.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+    angular.module('extendApp',[])
+            .controller('extendController',function ($scope) {
+                $scope.baby={
+                    cry:function(){
+                        console.log('I Can only cry');
+                    }
+                };
+                $scope.adult={
+                  earn:function () {
+                      console.log('I Love you');
+                  }
+                };
+
+                $scope.human={};
+                $scope.hehe="hehe";
+                $scope.extend=function(){
+                    angular.extend($scope.human,$scope.baby,$scope.adult);
+                    $scope.human
+                }
+            })
+</script>
+</body>
+</html>

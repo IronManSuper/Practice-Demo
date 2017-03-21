@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/vue.js"></script>
+    <style type="text/css" rel="stylesheet">
+        .foo{
+            width: 600px;
+            height: 500px;
+            background: #ff9;
+            margin:0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <aaaa></aaaa>
+    </div>
+    <script type="text/javascript">
+        var VnodeObj={
+            'class':{
+                foo:true,
+                bar:false
+            },
+            style:{
+                color:'red',
+                fontSize:'18px'
+            },
+            attrs:{
+                id:'foo'
+            },
+            props:{
+                myProp:'bar'
+            },
+            domProps:{
+                innerHTML:'baz'
+            }
+        };
+        new Vue({
+            components:{
+                'aaaa':{
+                    render:function(createElement){
+                        return createElement('div',VnodeObj)
+                    }
+                }
+            }
+        }).$mount('#app');
+    </script>
+</body>
+</html>

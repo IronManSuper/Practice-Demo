@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/vue.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+</head>
+<body>
+<div id="app">
+    <h1>Router Alias</h1>
+    <ul>
+        <li><router-link to="/foo">/foo(renders /home/foo)</router-link></li>
+        <li><router-link to="/home/bar-alias">//home/bar-alias(renders /home/bar)</router-link></li>
+        <li><router-link to="/home/baz">/home/baz(renders /home/baz)</router-link></li>
+        <li><router-link to="/home/baz-alias">/home/baz-alias(renders /home/baz)</router-link></li>
+    </ul>
+    <router-view class="view"></router-view>
+</div>
+    <script type="text/javascript">
+        const Home={template:'<div><h1>Home</h1><router-view></router-view></div>'};
+        const Foo={template:'<div>Foo</div>'};
+        const Bar={template:'<div>Bar</div>'};
+        const Baz={template:'<div>Baz</div>'};
+        const router=new VueRouter({
+            mode:'history',
+            /*base:__dirname,*/
+            routes:[
+                {
+                    path:'/home',
+                    component:Home,
+                    children:[
+                        {
+                            path:'foo',
+                            component:Foo,
+                            alias:'/foo'
+                        },
+                        {
+                            path:'bar',
+                            component:Bar,
+                            alias:'bar-alias'
+                        },
+                        {
+                            path:'baz',
+                            component:Baz,
+                            alias:['/baz','baz-alias']
+                        }
+                    ]
+                }
+            ]
+        });
+
+        new Vue({
+            router
+        }).$mount('#app');
+    </script>
+</body>
+</html>

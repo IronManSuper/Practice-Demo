@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+<div id="App">
+    <input type="text" v-demo:hello="message" v-model="message">
+</div>
+<script type="text/javascript">
+    Vue.directive('demo',{
+        bind:function(el,binding){
+            console.log('bind',binding.value);
+        },
+        inserted:function(){
+            console.log('inserted');
+        },
+        update:function(){
+            console.log('update');
+        },
+        componentUpdated:function(){
+            console.log('componentUpdated');
+        },
+        unbind:function(){
+            console.log('unbind')
+        }
+    });
+
+    new Vue({
+        el:'#App',
+        data:{
+            message:'Hello!'
+        }
+    });
+    
+</script>
+</body>
+</html>

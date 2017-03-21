@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="ezstuff">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="assets/plugins/angular/angular.js"></script>
+    <script src="controller.js"></script>
+</head>
+<body>
+   <div ng-controller="ezController">
+       <button ng-click="vm.shuffle()">shuffle</button>
+       <div>name:{{vm.sb.name}}</div>
+       <div>gender:{{vm.sb.gender}}</div>
+       <div>age:{{vm.sb.age}}</div>
+       <div>career:{{vm.sb.career}}</div>
+       <div><img ng-src="{{vm.sb.photo}}"></div>
+   </div>
+</body>
+</html>

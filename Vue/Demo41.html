@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+<div id="App">
+    <myslot>
+        <div slot="foo">this is slot</div>
+        <div slot="baz">this position is slot2</div>
+    </myslot>
+</div>
+<script type="text/javascript">
+
+    Vue.component('myslot',{
+        render:function(createElement){
+            var he=createElement('div',{
+                domProps:{
+                    innerHTML:'this child div'
+                }
+            });
+
+            return createElement('div',[he,this.$slots.foo,this.$slots.baz])
+        }
+    });
+
+    new Vue({
+        el:'#App'
+    });
+    
+</script>
+</body>
+</html>

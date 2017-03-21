@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+<div id="test">
+    <input v-model.lazy="msg" >
+    {{msg}}
+    <input type="text" v-model.number="age">
+    {{age}}
+</div>
+<script type="text/javascript">
+    new Vue({
+        el:'#test',
+        data:{
+            msg:'',
+            age:''
+        }
+    })
+</script>
+</body>
+</html>

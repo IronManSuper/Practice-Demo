@@ -1,0 +1,1 @@
+{"version":3,"sources":["Demo1.js"],"names":[],"mappings":";;AAAA;;;AAGA,IAAI,CAAJ;AACA,IAAI,IAAJ;AACA,QAAQ,GAAR,CAAY,CAAZ;AACA","file":"Demo1-compiled.js","sourcesContent":["/**\r\n * Created by Administrator on 2017/2/13.\r\n */\r\nvar a;\r\na = true;\r\nconsole.log(a);\r\n//# sourceMappingURL=Demo1.js.map"]}

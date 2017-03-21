@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+    <div id="todo-list-example">
+        <input type="text" v-model="newTodoText" v-on:keyup.enter="addNewTodo" placeholder="Add a todo">
+        <ul>
+            <li is="todo-item" v-for="(todo,index) in todos" :title="todo" :index="index" v-on:remove="todos.splice(index,1)"></li>
+        </ul>
+    </div>
+
+<script>
+    Vue.component('todo-item',{
+        template:'<li>{{index}} {{title}} <button @click="$emit(\'remove\')">X</button></li>',
+        props:['title','index']
+    });
+
+    new Vue({
+        el:'#todo-list-example',
+        data:{
+            newTodoText:'',
+            todos:[
+                    'Do the dishes',
+                    'Take out the trash',
+                    'Mow the lawn'
+            ].reverse()
+        },
+        methods: {
+            addNewTodo: function (e) {
+                console.log(e.keyCode);
+                this.todos.push(this.newTodoText);
+                this.newTodoText = '';
+            }
+        }
+    })
+</script>
+
+</body>
+</html>
